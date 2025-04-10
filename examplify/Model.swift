@@ -5,7 +5,10 @@
 //  Created by Manthan Vanani on 05/03/25.
 //
 
+import UIKit
+
 struct QuestionModel {
+    var uuid : String = UUID().uuidString
     var question: String?
     var description : String?
     var options: [OptionModel]
@@ -17,6 +20,7 @@ struct QuestionModel {
 }
 
 struct OptionModel {
+    var uuid : String = UUID().uuidString
     var key: String
     var value: String
     var isAnswer: Bool
