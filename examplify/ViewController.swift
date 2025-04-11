@@ -353,16 +353,16 @@ class ViewController: UIViewController {
         ]
         
         
-//        self.model.append( QuestionModel(
-//            question: "I'll transcribe the text from the image:\nA 10-year-old child presented to the pediatric clinic complaining from frequent micturition especially at night with bad wetting and irritability. Laboratory finding indicates normal blood glucose level. The hormone which is responsible for this condition is secreted from:\nAnswers A - D:",
-//            options: [
-//                OptionModel(key: "A", value: "Anterior pituitary", isAnswer: false),
-//                OptionModel(key: "B", value: "Follicular cell", isAnswer: false),
-//                OptionModel(key: "C", value: "Neurohypophysis", isAnswer: true),
-//                OptionModel(key: "D", value: "Adenohypophysis", isAnswer: false)
-//            ]
-//        ))
-//
+        //        self.model.append( QuestionModel(
+        //            question: "I'll transcribe the text from the image:\nA 10-year-old child presented to the pediatric clinic complaining from frequent micturition especially at night with bad wetting and irritability. Laboratory finding indicates normal blood glucose level. The hormone which is responsible for this condition is secreted from:\nAnswers A - D:",
+        //            options: [
+        //                OptionModel(key: "A", value: "Anterior pituitary", isAnswer: false),
+        //                OptionModel(key: "B", value: "Follicular cell", isAnswer: false),
+        //                OptionModel(key: "C", value: "Neurohypophysis", isAnswer: true),
+        //                OptionModel(key: "D", value: "Adenohypophysis", isAnswer: false)
+        //            ]
+        //        ))
+        //
         
         self.model.removeAll()
         
@@ -720,9 +720,7 @@ extension ViewController : NameChangeControllerDelegate{
             guard let name = Int(name ?? "63") else { return }
             self.numberOfQuestion = name
         }
-        
     }
-    
 }
 
 extension ViewController : ChangeQuestionControllerDelegate{
