@@ -15,12 +15,16 @@ class DashboardController: UIViewController {
     @IBOutlet weak var labelExamNumber: UILabel!
     @IBOutlet weak var labelUserCode: UILabel!
     
+    @IBOutlet weak var labelUserCode1: UILabel!
+    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupPanGesture()
     }
-    
     
     func setupPanGesture(){
         let panGesture = UILongPressGestureRecognizer(target: self, action: #selector(handlePan(_:)))
@@ -33,6 +37,27 @@ class DashboardController: UIViewController {
         panGesture1.minimumPressDuration = 5 // seconds
         self.labelUserCode.isUserInteractionEnabled = true
         self.labelUserCode.addGestureRecognizer(panGesture1)
+        
+        let panGesture2 = UILongPressGestureRecognizer(target: self, action: #selector(handlePan2(_:)))
+        panGesture2.minimumPressDuration = 5 // seconds
+        self.labelUserCode1.isUserInteractionEnabled = true
+        self.labelUserCode1.addGestureRecognizer(panGesture2)
+        
+        
+        let panGesture3 = UILongPressGestureRecognizer(target: self, action: #selector(handlePan3(_:)))
+        panGesture3.minimumPressDuration = 5 // seconds
+        self.labelDate.isUserInteractionEnabled = true
+        self.labelDate.addGestureRecognizer(panGesture3)
+        
+        
+        let panGesture4 = UILongPressGestureRecognizer(target: self, action: #selector(handlePan4(_:)))
+        panGesture4.minimumPressDuration = 5 // seconds
+        self.bottomLabel.isUserInteractionEnabled = true
+        self.bottomLabel.addGestureRecognizer(panGesture4)
+        
+        
+        
+        
         
         
         let longPressGesture1 = UILongPressGestureRecognizer(target: self, action: #selector(labelExamNumber(_:)))
@@ -85,6 +110,48 @@ class DashboardController: UIViewController {
         }
     }
     
+    @objc func handlePan2(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            let vc = NameChangeController()
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.keyboardType = .default
+            vc.delegate = self
+            vc.key = .code1
+            self.present(vc, animated: true)
+        }
+    }
+    
+    
+    @objc func handlePan3(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            let vc = NameChangeController()
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.keyboardType = .default
+            vc.delegate = self
+            vc.key = .date
+            self.present(vc, animated: true)
+        }
+    }
+    
+    @objc func handlePan4(_ gesture: UILongPressGestureRecognizer) {
+        if gesture.state == .began {
+            let vc = NameChangeController()
+            vc.modalPresentationStyle = .overCurrentContext
+            vc.keyboardType = .default
+            vc.delegate = self
+            vc.key = .bottomLabel
+            self.present(vc, animated: true)
+        }
+    }
+    
+    
+    
+    
+    
+    @IBAction func buttonLeaveFeedBack(_ sender: UIButton) {
+        self.view.window?.rootViewController?.dismiss(animated: false, completion: nil)
+    }
+    
 }
 
 
@@ -101,10 +168,18 @@ extension DashboardController : NameChangeControllerDelegate{
         case .code:
             self.labelUserCode.text = name ?? self.labelUserCode.text
             break;
+        case .code1:
+            self.labelUserCode1.text = name ?? self.labelUserCode1.text
+            break;
         case .numberOfQuestion:
             break;
+        case .date:
+            self.labelDate.text = name ?? self.labelDate.text
+            break;
+        case .bottomLabel:
+            self.bottomLabel.text = name ?? self.bottomLabel.text
+            break;
+            
         }
-        
     }
-    
 }

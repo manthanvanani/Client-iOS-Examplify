@@ -11,7 +11,11 @@ enum ChangeKey : String{
     case name = "name"
     case number = "number"
     case code = "code"
+    case code1 = "code1"
     case numberOfQuestion = "Question"
+    case date = "date"
+    case bottomLabel = "bottomLabel"
+    
 }
 
 protocol NameChangeControllerDelegate{

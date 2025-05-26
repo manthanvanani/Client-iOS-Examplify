@@ -719,6 +719,12 @@ extension ViewController : NameChangeControllerDelegate{
         case .numberOfQuestion:
             guard let name = Int(name ?? "63") else { return }
             self.numberOfQuestion = name
+        case .code1:
+            break;
+        case .date:
+            break;
+        case .bottomLabel:
+            break;
         }
     }
 }
